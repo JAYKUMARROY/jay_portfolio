@@ -1,481 +1,861 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Jay Kumar Roy — Aspiring Software Developer, CS (AI & ML) student at Pimpri Chinchwad University, Pune. Explore my projects, skills, and journey.">
-    <meta name="keywords" content="Jay Kumar Roy, portfolio, software developer, AI, ML, computer science, web developer">
+    <meta name="description" content="Jay Kumar Roy — Software Developer and CS (AI & ML) student at Pimpri Chinchwad University, Pune. Building modern web apps, mobile tools, and intelligent systems.">
+    <meta name="keywords" content="Jay Kumar Roy, portfolio, software developer, AI, ML, computer science, web developer, React Native, Python, fullstack">
     <meta name="author" content="Jay Kumar Roy">
 
-    <!-- Open Graph & SEO -->
+    <!-- SEO & Social Cards -->
     <meta name="robots" content="index, follow">
-    <meta property="og:title" content="Jay Kumar Roy — Portfolio">
-    <meta property="og:description" content="Aspiring Software Developer | CS (AI & ML) Student">
+    <meta property="og:title" content="Jay Kumar Roy | Software Developer & AI/ML Engineer">
+    <meta property="og:description" content="Portfolio of Jay Kumar Roy — Building modern web apps, mobile solutions, and intelligent AI systems.">
     <meta property="og:type" content="website">
     <meta property="og:image" content="assets/images/profile.png">
     
-    <!-- Twitter Cards -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@Mr_Roy_02">
-    <meta name="twitter:title" content="Jay Kumar Roy — Portfolio">
-    <meta name="twitter:description" content="Aspiring Software Developer | CS (AI & ML) Student">
+    <meta name="twitter:title" content="Jay Kumar Roy | Software Developer & AI/ML Engineer">
+    <meta name="twitter:description" content="Portfolio of Jay Kumar Roy — Building modern web apps, mobile solutions, and intelligent AI systems.">
     <meta name="twitter:image" content="assets/images/profile.png">
 
-    <title>Jay Kumar Roy — Portfolio</title>
+    <title>Jay Kumar Roy — Software Developer &amp; AI/ML Engineer</title>
 
     <!-- Favicon -->
-    <link rel="icon" type="image/png" href="assets/images/profile.png">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='25' fill='%230a0a0c'/><circle cx='50' cy='50' r='46' stroke='%23ef4444' stroke-width='4' fill='none'/><text x='50%' y='68%' font-size='60' font-family='sans-serif' font-weight='900' fill='%23ffffff' text-anchor='middle'>J</text><circle cx='75' cy='28' r='8' fill='%23ef4444'/></svg>">
 
-    <!-- Google Fonts -->
+    <!-- Fonts & Icons -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-
-    <!-- Devicon for skill icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700;800&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/devicon.min.css">
-
-    <!-- Font Awesome for UI icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
-    <!-- Stylesheet -->
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-    <!-- Floating Background Orbs -->
-    <div class="orb orb-1"></div>
-    <div class="orb orb-2"></div>
-    <div class="orb orb-3"></div>
+    <!-- Scroll progress indicator -->
+    <div class="scroll-progress-container" aria-hidden="true">
+        <div class="scroll-progress-bar" id="scroll-progress-bar"></div>
+    </div>
 
-    <!-- Particle Canvas -->
-    <canvas id="particle-canvas"></canvas>
+    <!-- Background cursor spotlight -->
+    <div class="cursor-spotlight" id="cursor-spotlight" aria-hidden="true"></div>
 
-    <!-- ============ NAVIGATION ============ -->
-    <nav class="navbar" id="navbar">
-        <div class="nav-container">
-            <a href="#hero" class="nav-logo">Jay<span class="logo-dot">.</span></a>
-            <ul class="nav-links" id="nav-links">
-                <li><a href="#hero" data-section="hero" class="active">Home</a></li>
-                <li><a href="#about" data-section="about">About</a></li>
-                <li><a href="#skills" data-section="skills">Skills</a></li>
-                <li><a href="#projects" data-section="projects">Projects</a></li>
-                <li><a href="#education" data-section="education">Education</a></li>
-                <li><a href="#contact" data-section="contact">Contact</a></li>
-            </ul>
-            <div class="hamburger" id="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
+    <!-- Mobile header -->
+    <header class="mobile-navbar-header" id="mobile-navbar-header" aria-label="Mobile Navigation">
+        <div class="mobile-navbar-inner">
+            <a href="#hero" class="mobile-nav-brand" aria-label="Jay Kumar Roy - Home">
+                <span class="mobile-red-initial">J<span class="dot">.</span></span>
+                <span class="mobile-brand-name">JAY<span class="dot">.</span></span>
+            </a>
+
+            <div class="mobile-nav-controls">
+                <button class="mobile-theme-btn theme-toggle-btn" aria-label="Toggle Theme" title="Toggle Theme">
+                    <svg class="mobile-moon-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ef4444" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 3a6 6 0 0 0 9 9 9 0 1 1-9-9Z"></path>
+                    </svg>
+                    <svg class="mobile-sun-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ef4444" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="4"></circle>
+                        <path d="M12 2v2"></path>
+                        <path d="M12 20v2"></path>
+                        <path d="m4.93 4.93 1.41 1.41"></path>
+                        <path d="m17.66 17.66 1.41 1.41"></path>
+                        <path d="M2 12h2"></path>
+                        <path d="M20 12h2"></path>
+                        <path d="m6.34 17.66-1.41 1.41"></path>
+                        <path d="m19.07 4.93-1.41 1.41"></path>
+                    </svg>
+                </button>
+
+                <div class="mobile-nav-divider"></div>
+
+                <button class="mobile-hamburger-btn mobile-menu-toggle" id="header-mobile-toggle" aria-label="Open Navigation Menu">
+                    <span class="bar-long"></span>
+                    <span class="bar-short"></span>
+                </button>
             </div>
         </div>
-    </nav>
+    </header>
 
-    <!-- ============ HERO SECTION ============ -->
-    <section id="hero" class="section">
+    <!-- Desktop floating nav -->
+    <header class="navbar-wrapper" id="navbar-wrapper">
+        <nav class="navbar-island" aria-label="Main Navigation">
+            <a href="#hero" class="nav-brand" aria-label="Jay Kumar Roy - Home">
+                <div class="nav-avatar-letter">J</div>
+                <span class="nav-brand-text">JAY<span class="dot">.</span></span>
+            </a>
+
+            <div class="nav-divider"></div>
+
+            <ul class="nav-links" id="desktop-nav-links">
+                <li class="nav-item">
+                    <a href="#hero" class="nav-link active" data-section="hero">
+                        <span>Home</span>
+                        <span class="nav-link-pill-hover"></span>
+                        <span class="nav-link-indicator"></span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#about" class="nav-link" data-section="about">
+                        <span>About</span>
+                        <span class="nav-link-pill-hover"></span>
+                        <span class="nav-link-indicator"></span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#skills" class="nav-link" data-section="skills">
+                        <span>Skills</span>
+                        <span class="nav-link-pill-hover"></span>
+                        <span class="nav-link-indicator"></span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#services" class="nav-link" data-section="services">
+                        <span>Services</span>
+                        <span class="nav-link-pill-hover"></span>
+                        <span class="nav-link-indicator"></span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#projects" class="nav-link" data-section="projects">
+                        <span>Work</span>
+                        <span class="nav-link-pill-hover"></span>
+                        <span class="nav-link-indicator"></span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#education" class="nav-link" data-section="education">
+                        <span>Education</span>
+                        <span class="nav-link-pill-hover"></span>
+                        <span class="nav-link-indicator"></span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#faq" class="nav-link" data-section="faq">
+                        <span>FAQ</span>
+                        <span class="nav-link-pill-hover"></span>
+                        <span class="nav-link-indicator"></span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#contact" class="nav-link" data-section="contact">
+                        <span>Contact</span>
+                        <i class="fas fa-arrow-up-right-from-square" style="font-size: 0.65rem; margin-left: 2px;"></i>
+                        <span class="nav-link-pill-hover"></span>
+                        <span class="nav-link-indicator"></span>
+                    </a>
+                </li>
+            </ul>
+
+            <div class="nav-divider"></div>
+
+            <button class="theme-toggle-btn" id="theme-toggle" aria-label="Toggle Dark/Light Mode" title="Toggle Theme">
+                <i class="fas fa-sun theme-icon-sun"></i>
+                <i class="fas fa-moon theme-icon-moon"></i>
+            </button>
+
+            <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Toggle Navigation Menu">
+                <span></span>
+                <span></span>
+            </button>
+        </nav>
+    </header>
+
+    <!-- Mobile drawer -->
+    <div class="mobile-drawer" id="mobile-drawer">
+        <ul class="mobile-drawer-links">
+            <li><a href="#hero" class="mobile-drawer-link">Home</a></li>
+            <li><a href="#about" class="mobile-drawer-link">About</a></li>
+            <li><a href="#skills" class="mobile-drawer-link">Skills</a></li>
+            <li><a href="#services" class="mobile-drawer-link">Services</a></li>
+            <li><a href="#projects" class="mobile-drawer-link">Work</a></li>
+            <li><a href="#education" class="mobile-drawer-link">Education</a></li>
+            <li><a href="#faq" class="mobile-drawer-link">FAQ</a></li>
+            <li><a href="#contact" class="mobile-drawer-link">Contact ↗</a></li>
+        </ul>
+    </div>
+
+    <!-- Hero -->
+    <section id="hero" class="hero-section">
         <div class="hero-container">
-            <div class="hero-content">
-                <p class="hero-greeting">Hello, World! <span class="wave">👋</span></p>
-                <h1 class="hero-name">I'm <span class="highlight">Jay Kumar Roy</span></h1>
-                <p class="hero-tagline"><span class="typing-text"></span><span class="cursor">|</span></p>
+            
+            <div class="hero-meta-row reveal-on-scroll">
+                <div class="meta-left">
+                    <span>Based in<br><strong class="meta-highlight">Pune, India</strong></span>
+                </div>
+                <div class="meta-center">
+                    <span class="status-beacon"></span>
+                    <span class="meta-highlight">Available for Work</span>
+                </div>
+                <div class="meta-right">
+                    <span>Software &amp;<br><strong class="meta-highlight">AI/ML Developer</strong></span>
+                </div>
+            </div>
+
+            <div class="hero-title-wrap reveal-on-scroll delay-1">
+                <h1 class="hero-title">JAY KUMAR ROY</h1>
+                <div class="hero-backdrop-glow"></div>
+            </div>
+
+            <div class="hero-subhead reveal-on-scroll delay-2">
+                <div class="hero-typing-box">
+                    <span id="typing-text"></span><span class="typing-cursor">_</span>
+                </div>
                 <p class="hero-description">
-                    A passionate first-year Computer Science student specializing in AI & Machine Learning, 
-                    building innovative solutions one project at a time.
+                    First-year B.Tech CS (AI &amp; ML) student at Pimpri Chinchwad University, Pune. 
+                    Building responsive web apps, mobile tools with React Native, and practical AI/ML systems.
                 </p>
-                <div class="hero-cta">
-                    <a href="#projects" class="btn btn-primary">
-                        <i class="fas fa-rocket"></i> View Projects
+
+                <div class="hero-actions">
+                    <a href="#projects" class="btn-pill-primary">
+                        <span>Selected Work</span>
+                        <i class="fas fa-arrow-right"></i>
                     </a>
-                    <a href="#contact" class="btn btn-secondary">
-                        <i class="fas fa-envelope"></i> Contact Me
+                    <a href="#contact" class="btn-pill-secondary">
+                        <span>Let's Talk</span>
+                        <i class="fas fa-envelope"></i>
                     </a>
-                    <a href="assets/Jay_Kumar_Roy_Resume.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" title="View Resume">
-                        <i class="fas fa-file-pdf"></i> Resume
+                    <a href="assets/Jay_Kumar_Roy_Resume.pdf" target="_blank" rel="noopener noreferrer" class="btn-pill-secondary" title="View Jay Kumar Roy Resume">
+                        <span>Resume</span>
+                        <i class="fas fa-arrow-up-right-from-square"></i>
                     </a>
                 </div>
-                <div class="social-links">
-                    <a href="https://github.com/JAYKUMARROY" target="_blank" rel="noopener noreferrer" title="GitHub" class="social-link">
+
+                <div class="hero-socials">
+                    <a href="https://github.com/JAYKUMARROY" target="_blank" rel="noopener noreferrer" class="social-pill-btn" aria-label="GitHub Profile" title="GitHub">
                         <i class="fab fa-github"></i>
                     </a>
-                    <a href="https://www.linkedin.com/in/jayumarroy06/" target="_blank" rel="noopener noreferrer" title="LinkedIn" class="social-link">
+                    <a href="https://www.linkedin.com/in/jayumarroy06/" target="_blank" rel="noopener noreferrer" class="social-pill-btn" aria-label="LinkedIn Profile" title="LinkedIn">
                         <i class="fab fa-linkedin-in"></i>
                     </a>
-                    <a href="https://x.com/Mr_Roy_02" target="_blank" rel="noopener noreferrer" title="Twitter" class="social-link">
+                    <a href="https://x.com/Mr_Roy_02" target="_blank" rel="noopener noreferrer" class="social-pill-btn" aria-label="Twitter X Profile" title="Twitter / X">
                         <i class="fab fa-x-twitter"></i>
                     </a>
-                    <a href="https://leetcode.com/u/Mr_Roy_06/" target="_blank" rel="noopener noreferrer" title="LeetCode" class="social-link">
+                    <a href="https://leetcode.com/u/Mr_Roy_06/" target="_blank" rel="noopener noreferrer" class="social-pill-btn" aria-label="LeetCode Profile" title="LeetCode">
                         <i class="fas fa-code"></i>
                     </a>
                 </div>
             </div>
-            <div class="hero-image">
-                <div class="hero-image-wrapper">
-                    <img src="assets/images/profile.png" alt="Jay Kumar Roy - Profile">
+
+        </div>
+    </section>
+
+    <!-- Skills & Tools Marquee -->
+    <section id="skills" class="tech-marquee-section">
+        <div class="marquee-header-wrap">
+            <span class="section-eyebrow" style="margin-bottom: 0;">[ TECH STACK &amp; TOOLS ]</span>
+            <span style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--text-tertiary); text-transform: uppercase;">12+ Technologies</span>
+        </div>
+
+        <div class="marquee-track">
+            <div class="tech-badge-item"><i class="devicon-python-plain colored"></i><span>Python &amp; ML</span></div>
+            <div class="tech-badge-item"><i class="devicon-react-original colored"></i><span>React.js</span></div>
+            <div class="tech-badge-item"><i class="devicon-react-original colored"></i><span>React Native</span></div>
+            <div class="tech-badge-item"><i class="devicon-tailwindcss-original colored"></i><span>Tailwind CSS</span></div>
+            <div class="tech-badge-item"><i class="devicon-supabase-plain colored"></i><span>Supabase</span></div>
+            <div class="tech-badge-item"><i class="devicon-javascript-plain colored"></i><span>JavaScript (ES6+)</span></div>
+            <div class="tech-badge-item"><i class="devicon-cplusplus-plain colored"></i><span>C++</span></div>
+            <div class="tech-badge-item"><i class="devicon-php-plain colored"></i><span>PHP</span></div>
+            <div class="tech-badge-item"><i class="devicon-mysql-plain colored"></i><span>MySQL</span></div>
+            <div class="tech-badge-item"><i class="devicon-mongodb-plain colored"></i><span>MongoDB</span></div>
+            <div class="tech-badge-item"><i class="devicon-firebase-plain colored"></i><span>Firebase</span></div>
+            <div class="tech-badge-item"><i class="devicon-git-plain colored"></i><span>Git &amp; GitHub</span></div>
+            <div class="tech-badge-item"><i class="devicon-html5-plain colored"></i><span>HTML5 / CSS3</span></div>
+
+            <div class="tech-badge-item"><i class="devicon-python-plain colored"></i><span>Python &amp; ML</span></div>
+            <div class="tech-badge-item"><i class="devicon-react-original colored"></i><span>React.js</span></div>
+            <div class="tech-badge-item"><i class="devicon-react-original colored"></i><span>React Native</span></div>
+            <div class="tech-badge-item"><i class="devicon-tailwindcss-original colored"></i><span>Tailwind CSS</span></div>
+            <div class="tech-badge-item"><i class="devicon-supabase-plain colored"></i><span>Supabase</span></div>
+            <div class="tech-badge-item"><i class="devicon-javascript-plain colored"></i><span>JavaScript (ES6+)</span></div>
+            <div class="tech-badge-item"><i class="devicon-cplusplus-plain colored"></i><span>C++</span></div>
+            <div class="tech-badge-item"><i class="devicon-php-plain colored"></i><span>PHP</span></div>
+            <div class="tech-badge-item"><i class="devicon-mysql-plain colored"></i><span>MySQL</span></div>
+            <div class="tech-badge-item"><i class="devicon-mongodb-plain colored"></i><span>MongoDB</span></div>
+            <div class="tech-badge-item"><i class="devicon-firebase-plain colored"></i><span>Firebase</span></div>
+            <div class="tech-badge-item"><i class="devicon-git-plain colored"></i><span>Git &amp; GitHub</span></div>
+            <div class="tech-badge-item"><i class="devicon-html5-plain colored"></i><span>HTML5 / CSS3</span></div>
+        </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="section-wrapper">
+        <div class="section-inner">
+            <div class="about-grid-layout">
+                
+                <div class="reveal-on-scroll">
+                    <span class="section-eyebrow">[ ABOUT ME ]</span>
+                    <h2 class="about-manifesto-text">
+                        <span>Building</span> 
+                        <span class="dim-word">intelligent</span> 
+                        <span class="red-word">web &amp; mobile</span> 
+                        <span>applications</span> 
+                        <span class="dim-word">with clean code</span> 
+                        <span>and</span> 
+                        <span class="red-word">real-world impact</span>.
+                    </h2>
+
+                    <div class="about-narrative">
+                        <p>
+                            I'm <strong>Jay Kumar Roy</strong>, a Computer Science undergraduate (specializing in AI &amp; ML) 
+                            at Pimpri Chinchwad University, Pune. I enjoy working across the entire development cycle — 
+                            from modern frontend interfaces and APIs to mobile applications and machine learning experiments.
+                        </p>
+                        <p>
+                            I've developed projects ranging from a cross-platform healthcare app using <strong>React Native &amp; Supabase</strong> (Carissa) 
+                            to an online examination portal built with <strong>PHP &amp; MySQL</strong> (Urchoyc). I focus on writing straightforward, maintainable code 
+                            and building tools that people actually find useful.
+                        </p>
+                        <p>
+                            When I'm not writing code for projects, I'm usually solving algorithmic problems on LeetCode, learning about deep learning architectures, 
+                            or testing out new developer tooling.
+                        </p>
+                    </div>
                 </div>
+
+                <div class="reveal-on-scroll delay-2">
+                    <div class="profile-bento-card">
+                        <div class="profile-header-meta">
+                            <div class="profile-avatar-letter-large">
+                                <span>J</span>
+                                <div class="profile-avatar-badge"><i class="fas fa-check"></i></div>
+                            </div>
+                            <div class="profile-info">
+                                <h3>Jay Kumar Roy</h3>
+                                <p>Software &amp; AI Developer</p>
+                            </div>
+                        </div>
+
+                        <div class="about-stats-row">
+                            <div class="stat-box">
+                                <div class="stat-number" data-target="4">4+</div>
+                                <div class="stat-label">Projects Built</div>
+                            </div>
+                            <div class="stat-box">
+                                <div class="stat-number" data-target="12">12+</div>
+                                <div class="stat-label">Tech Stack</div>
+                            </div>
+                            <div class="stat-box">
+                                <div class="stat-number">1st</div>
+                                <div class="stat-label">Year CS (AI&amp;ML)</div>
+                            </div>
+                        </div>
+
+                        <div class="profile-footer-links">
+                            <a href="https://www.linkedin.com/in/jayumarroy06/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
+                            <span>•</span>
+                            <a href="https://github.com/JAYKUMARROY" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+                            <span>•</span>
+                            <a href="assets/Jay_Kumar_Roy_Resume.pdf" target="_blank" rel="noopener noreferrer">Resume ↗</a>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
 
-    <!-- ============ ABOUT SECTION ============ -->
-    <section id="about" class="section">
-        <div class="container">
-            <div class="section-header reveal">
-                <h2 class="section-title">About Me</h2>
-                <p class="section-subtitle">Get to know more about who I am and what drives me</p>
-            </div>
-            <div class="about-grid">
-                <div class="about-image-container reveal-left">
-                    <div class="about-image">
-                        <img src="assets/images/profile.png" alt="Jay Kumar Roy">
-                    </div>
-                </div>
-                <div class="about-text reveal-right">
-                    <p>
-                        Hi there! I'm <strong>Jay Kumar Roy</strong>, a first-year B.Tech student in 
-                        <strong>Computer Science (AI & ML)</strong> at Pimpri Chinchwad University, Pune. 
-                        I'm passionate about leveraging technology to create impactful solutions.
+    <!-- Services -->
+    <section id="services" class="section-wrapper" style="background: var(--bg-secondary);">
+        <div class="section-inner">
+            <div class="services-layout">
+                
+                <div class="sticky-side-box reveal-on-scroll">
+                    <span class="section-eyebrow">[ WHAT I DO ]</span>
+                    <h2 class="section-editorial-title">SERVICES</h2>
+                    <p style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.7; max-width: 320px;">
+                        Practical digital solutions — from responsive web apps and cross-platform mobile experiences to backend architectures and machine learning tools.
                     </p>
-                    <p>
-                        My journey in tech started with curiosity about how things work behind the screen, 
-                        and it has since evolved into a deep love for full-stack development, artificial intelligence, 
-                        and building products that solve real-world problems.
+                </div>
+
+                <div class="services-list reveal-on-scroll delay-1">
+                    
+                    <div class="service-accordion-item active">
+                        <div class="service-accordion-indicator"></div>
+                        <div class="service-header-row">
+                            <span class="service-num">01</span>
+                            <div class="service-title-area">
+                                <h3 class="service-title">Full-Stack Web Development</h3>
+                                <div class="service-content-body">
+                                    <p class="service-description">
+                                        Responsive web applications built with modern component architectures, fast load times, semantic HTML, and solid SEO fundamentals.
+                                    </p>
+                                    <div class="service-tech-tags">
+                                        <span class="service-tag">React.js</span>
+                                        <span class="service-tag">JavaScript ES6+</span>
+                                        <span class="service-tag">Tailwind CSS</span>
+                                        <span class="service-tag">HTML5/CSS3</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="service-accordion-item">
+                        <div class="service-accordion-indicator"></div>
+                        <div class="service-header-row">
+                            <span class="service-num">02</span>
+                            <div class="service-title-area">
+                                <h3 class="service-title">AI &amp; Machine Learning Solutions</h3>
+                                <div class="service-content-body">
+                                    <p class="service-description">
+                                        Developing and deploying machine learning models, predictive pipelines, and practical automated intelligence features into web and mobile ecosystems.
+                                    </p>
+                                    <div class="service-tech-tags">
+                                        <span class="service-tag">Python</span>
+                                        <span class="service-tag">Data Science</span>
+                                        <span class="service-tag">AI/ML Algorithms</span>
+                                        <span class="service-tag">Model Deployment</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="service-accordion-item">
+                        <div class="service-accordion-indicator"></div>
+                        <div class="service-header-row">
+                            <span class="service-num">03</span>
+                            <div class="service-title-area">
+                                <h3 class="service-title">Mobile App Development</h3>
+                                <div class="service-content-body">
+                                    <p class="service-description">
+                                        Cross-platform mobile applications for iOS and Android built with React Native and Expo, featuring real-time data sync, offline storage, and clean UX.
+                                    </p>
+                                    <div class="service-tech-tags">
+                                        <span class="service-tag">React Native</span>
+                                        <span class="service-tag">Expo</span>
+                                        <span class="service-tag">Supabase</span>
+                                        <span class="service-tag">Firebase</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="service-accordion-item">
+                        <div class="service-accordion-indicator"></div>
+                        <div class="service-header-row">
+                            <span class="service-num">04</span>
+                            <div class="service-title-area">
+                                <h3 class="service-title">Backend &amp; API Architecture</h3>
+                                <div class="service-content-body">
+                                    <p class="service-description">
+                                        Server-side logic, secure RESTful APIs, relational/document database schemas, and cloud authentication engineered for reliability.
+                                    </p>
+                                    <div class="service-tech-tags">
+                                        <span class="service-tag">Node.js</span>
+                                        <span class="service-tag">PHP</span>
+                                        <span class="service-tag">MySQL</span>
+                                        <span class="service-tag">MongoDB</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="service-accordion-item">
+                        <div class="service-accordion-indicator"></div>
+                        <div class="service-header-row">
+                            <span class="service-num">05</span>
+                            <div class="service-title-area">
+                                <h3 class="service-title">UI/UX &amp; Web Redesign</h3>
+                                <div class="service-content-body">
+                                    <p class="service-description">
+                                        Modernizing web interfaces with clean typographic hierarchy, smooth animations, dark/light modes, and mobile-friendly layouts.
+                                    </p>
+                                    <div class="service-tech-tags">
+                                        <span class="service-tag">Modern UI</span>
+                                        <span class="service-tag">Micro-Interactions</span>
+                                        <span class="service-tag">Dark/Light Themes</span>
+                                        <span class="service-tag">Performance</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Selected Projects -->
+    <section id="projects" class="section-wrapper">
+        <div class="section-inner">
+            
+            <div class="projects-header-flex reveal-on-scroll">
+                <div>
+                    <span class="section-eyebrow">[ PORTFOLIO ]</span>
+                    <h2 class="section-editorial-title" style="margin-bottom: 0;">SELECTED WORK</h2>
+                </div>
+                <div class="projects-counter-badge">[ 04 ]</div>
+            </div>
+
+            <div class="projects-bento-grid">
+                
+                <div class="project-card-item project-col-12 reveal-on-scroll delay-1" style="background: #0d1117;">
+                    <div class="project-media-wrapper">
+                        <img src="https://exbps-vivofs-asia.vivoglobal.com/ZDDi1WlyKt3GqD2d/exdeveloper/img/20260824/202608242248228727340.png" onerror="this.src='assets/images/carissa.png'" alt="Carissa - AI Health Companion App" class="project-media-img" style="object-position: center top;">
+                    </div>
+                    <div class="project-gradient-overlay"></div>
+                    <div class="project-info-overlay">
+                        <div class="project-text-content">
+                            <p class="project-category-badge">Healthcare &amp; Patient Care App</p>
+                            <h3 class="project-card-title"><a href="https://carissatech.in/" target="_blank" rel="noopener noreferrer" style="color: inherit;">Carissa Healthcare</a></h3>
+                            <p class="project-card-desc">
+                                A mobile healthcare application designed for patient care, wellness tracking, real-time health monitoring, and doctor-patient communication with an intuitive interface.
+                            </p>
+                            <div class="project-tags-list">
+                                <span class="project-tag-pill">React Native</span>
+                                <span class="project-tag-pill">Supabase</span>
+                                <span class="project-tag-pill">Tailwind CSS</span>
+                                <span class="project-tag-pill">Expo</span>
+                                <span class="project-tag-pill">Node.js</span>
+                                <span class="project-tag-pill">Firebase</span>
+                            </div>
+                        </div>
+                        <a href="https://carissatech.in/" target="_blank" rel="noopener noreferrer" class="project-action-circle" aria-label="Visit Carissa Tech Live Website" title="Visit carissatech.in">
+                            <i class="fas fa-arrow-up-right-from-square"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="project-card-item project-col-6 reveal-on-scroll delay-2" style="background: #111827;">
+                    <div class="project-media-wrapper">
+                        <img src="assets/images/urchoyc.png" alt="Urchoyc Online Examination System" class="project-media-img">
+                    </div>
+                    <div class="project-gradient-overlay"></div>
+                    <div class="project-info-overlay">
+                        <div class="project-text-content">
+                            <p class="project-category-badge">Education &amp; Examination Platform</p>
+                            <h3 class="project-card-title">Urchoyc Exam System</h3>
+                            <p class="project-card-desc">
+                                An online examination portal for educators and students with timed quizzes, instant grading algorithms, and comprehensive result dashboards.
+                            </p>
+                            <div class="project-tags-list">
+                                <span class="project-tag-pill">PHP</span>
+                                <span class="project-tag-pill">MySQL</span>
+                                <span class="project-tag-pill">Tailwind CSS</span>
+                                <span class="project-tag-pill">JavaScript</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card-item project-col-6 reveal-on-scroll delay-3" style="background: #0f172a;">
+                    <div class="project-media-wrapper">
+                        <img src="assets/images/touristspot.png" alt="TouristSpot Travel Destination Platform" class="project-media-img">
+                    </div>
+                    <div class="project-gradient-overlay"></div>
+                    <div class="project-info-overlay">
+                        <div class="project-text-content">
+                            <p class="project-category-badge">Travel &amp; Tourism Discovery</p>
+                            <h3 class="project-card-title">TouristSpot Platform</h3>
+                            <p class="project-card-desc">
+                                A dynamic travel exploration platform allowing users to discover tourist destinations, plan customized itineraries, and experience interactive travel maps.
+                            </p>
+                            <div class="project-tags-list">
+                                <span class="project-tag-pill">HTML5</span>
+                                <span class="project-tag-pill">CSS3</span>
+                                <span class="project-tag-pill">JavaScript</span>
+                                <span class="project-tag-pill">Responsive Design</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card-item project-col-12 reveal-on-scroll delay-1" style="background: #18181b; min-height: 400px; height: 50vh;">
+                    <div class="project-media-wrapper">
+                        <img src="assets/images/todo.png" alt="To-Do Task Management App" class="project-media-img" style="object-position: center top;">
+                    </div>
+                    <div class="project-gradient-overlay"></div>
+                    <div class="project-info-overlay">
+                        <div class="project-text-content">
+                            <p class="project-category-badge">Productivity &amp; Workflow Tool</p>
+                            <h3 class="project-card-title">To-Do Task Management</h3>
+                            <p class="project-card-desc">
+                                A clean, distraction-free task management application built for organizing daily sprints with priorities, tags, status tracking, and offline persistence.
+                            </p>
+                            <div class="project-tags-list">
+                                <span class="project-tag-pill">React Native</span>
+                                <span class="project-tag-pill">Tailwind CSS</span>
+                                <span class="project-tag-pill">Expo</span>
+                                <span class="project-tag-pill">AsyncStorage</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Education -->
+    <section id="education" class="section-wrapper" style="background: var(--bg-secondary);">
+        <div class="section-inner">
+            <span class="section-eyebrow">[ ACADEMIC JOURNEY ]</span>
+            <h2 class="section-editorial-title">EDUCATION</h2>
+
+            <div class="timeline-list reveal-on-scroll">
+                <div class="timeline-node-item">
+                    <div class="timeline-node-dot"></div>
+                    <span class="timeline-year-badge"><i class="fas fa-calendar-alt"></i> June 2026 — Present</span>
+                    <h3 class="timeline-degree-title">B.Tech — Computer Science (AI &amp; ML)</h3>
+                    <p class="timeline-institution">Pimpri Chinchwad University (PCU), Pune, Maharashtra</p>
+                    <p class="timeline-desc-text">
+                        Currently pursuing a Bachelor of Technology degree in Computer Science with specialization in 
+                        Artificial Intelligence and Machine Learning. Focused on algorithms, object-oriented software design, 
+                        deep learning architectures, data structures, and practical software engineering.
                     </p>
-                    <p>
-                        When I'm not coding, you'll find me exploring new technologies, contributing to projects, 
-                        and constantly pushing myself to learn and grow as a developer.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="section-wrapper">
+        <div class="section-inner">
+            <div class="services-layout">
+                
+                <div class="sticky-side-box reveal-on-scroll">
+                    <span class="section-eyebrow">[ COMMON QUESTIONS ]</span>
+                    <h2 class="section-editorial-title">FREQUENTLY<br>ASKED</h2>
+                    <p style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.7; max-width: 320px;">
+                        Quick answers about my technical skills, development workflow, and collaboration availability.
                     </p>
-                    <div class="about-stats">
-                        <div class="stat-card">
-                            <div class="stat-number">4+</div>
-                            <div class="stat-label">Projects Built</div>
-                        </div>
-                        <div class="stat-card">
-                            <div class="stat-number">12+</div>
-                            <div class="stat-label">Technologies</div>
-                        </div>
-                        <div class="stat-card">
-                            <div class="stat-number">1st</div>
-                            <div class="stat-label">Year CS Student</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ============ SKILLS SECTION ============ -->
-    <section id="skills" class="section">
-        <div class="container">
-            <div class="section-header reveal">
-                <h2 class="section-title">My Skills</h2>
-                <p class="section-subtitle">Technologies and tools I work with</p>
-            </div>
-            <div class="skills-container">
-                <!-- Frontend -->
-                <div class="skill-category reveal">
-                    <h3><span class="category-icon"><i class="fas fa-palette"></i></span> Frontend</h3>
-                    <div class="skills-grid">
-                        <div class="skill-card" data-color="html">
-                            <i class="devicon-html5-plain colored"></i>
-                            <span>HTML5</span>
-                        </div>
-                        <div class="skill-card" data-color="css">
-                            <i class="devicon-css3-plain colored"></i>
-                            <span>CSS3</span>
-                        </div>
-                        <div class="skill-card" data-color="js">
-                            <i class="devicon-javascript-plain colored"></i>
-                            <span>JavaScript</span>
-                        </div>
-                        <div class="skill-card" data-color="react">
-                            <i class="devicon-react-original colored"></i>
-                            <span>React</span>
-                        </div>
-                        <div class="skill-card" data-color="react-native">
-                            <i class="devicon-react-original colored"></i>
-                            <span>React Native</span>
-                        </div>
-                        <div class="skill-card" data-color="tailwind">
-                            <i class="devicon-tailwindcss-original colored"></i>
-                            <span>Tailwind CSS</span>
-                        </div>
-                    </div>
                 </div>
 
-                <!-- Backend -->
-                <div class="skill-category reveal">
-                    <h3><span class="category-icon"><i class="fas fa-server"></i></span> Backend</h3>
-                    <div class="skills-grid">
-                        <div class="skill-card" data-color="python">
-                            <i class="devicon-python-plain colored"></i>
-                            <span>Python</span>
+                <div class="faq-list reveal-on-scroll delay-1">
+                    
+                    <div class="faq-accordion-item active">
+                        <div class="faq-header-flex">
+                            <h3 class="faq-question-title">What technologies do you specialize in?</h3>
+                            <div class="faq-toggle-icon">+</div>
                         </div>
-                        <div class="skill-card" data-color="php">
-                            <i class="devicon-php-plain colored"></i>
-                            <span>PHP</span>
-                        </div>
-                        <div class="skill-card" data-color="cpp">
-                            <i class="devicon-cplusplus-plain colored"></i>
-                            <span>C++</span>
+                        <div class="faq-answer-body">
+                            <p>
+                                I specialize in full-stack web and mobile development with React, React Native, JavaScript, Tailwind CSS, Python (AI/ML), Supabase, Firebase, PHP, and MySQL. I also work with C++ for core algorithmic problem solving.
+                            </p>
                         </div>
                     </div>
-                </div>
 
-                <!-- Database -->
-                <div class="skill-category reveal">
-                    <h3><span class="category-icon"><i class="fas fa-database"></i></span> Database</h3>
-                    <div class="skills-grid">
-                        <div class="skill-card" data-color="mysql">
-                            <i class="devicon-mysql-plain colored"></i>
-                            <span>MySQL</span>
+                    <div class="faq-accordion-item">
+                        <div class="faq-header-flex">
+                            <h3 class="faq-question-title">Are you open to freelance projects or internships?</h3>
+                            <div class="faq-toggle-icon">+</div>
                         </div>
-                        <div class="skill-card" data-color="mongodb">
-                            <i class="devicon-mongodb-plain colored"></i>
-                            <span>MongoDB</span>
+                        <div class="faq-answer-body">
+                            <p>
+                                Yes! I am actively looking for software engineering internships, freelance web/mobile development projects, and collaborative startup opportunities. Feel free to reach out via the contact form or email.
+                            </p>
                         </div>
                     </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- ============ PROJECTS SECTION ============ -->
-    <section id="projects" class="section">
-        <div class="container">
-            <div class="section-header reveal">
-                <h2 class="section-title">My Projects</h2>
-                <p class="section-subtitle">A showcase of what I've been building</p>
-            </div>
-            <div class="projects-grid">
-
-                <!-- Project 1: Carissa -->
-                <div class="project-card reveal delay-1">
-                    <div class="project-image">
-                        <img src="assets/images/carissa.png" alt="Carissa - Healthcare App">
-                    </div>
-                    <div class="project-info">
-                        <h3 class="project-title">Carissa - A Healthcare App</h3>
-                        <p class="project-description">
-                            A comprehensive healthcare application designed for patient care, wellness tracking, 
-                            and health monitoring with an intuitive interface.
-                        </p>
-                        <div class="project-tags">
-                            <span class="project-tag">React Native</span>
-                            <span class="project-tag">Supabase</span>
-                            <span class="project-tag">Tailwind CSS</span>
-                            <span class="project-tag">Node JS</span>
-                            <span class="project-tag">Firebase</span>
-                            <span class="project-tag">Expo</span>
-                            <span class="project-tag">GetStream</span>
+                    <div class="faq-accordion-item">
+                        <div class="faq-header-flex">
+                            <h3 class="faq-question-title">How do you approach AI/ML integration into applications?</h3>
+                            <div class="faq-toggle-icon">+</div>
+                        </div>
+                        <div class="faq-answer-body">
+                            <p>
+                                I build end-to-end architectures where machine learning models are trained or fine-tuned in Python, exposed through clean REST APIs, and integrated seamlessly into responsive frontend interfaces with real-time feedback.
+                            </p>
                         </div>
                     </div>
-                </div>
 
-                <!-- Project 2: To-Do -->
-                <div class="project-card reveal delay-2">
-                    <div class="project-image">
-                        <img src="assets/images/todo.png" alt="To-Do - Task Management App">
-                    </div>
-                    <div class="project-info">
-                        <h3 class="project-title">To-Do - Task Management App</h3>
-                        <p class="project-description">
-                            A clean and functional task management app to organize daily tasks with 
-                            priorities, categories, and a sleek user experience.
-                        </p>
-                        <div class="project-tags">
-                            <span class="project-tag">React Native</span>
-                            <span class="project-tag">Tailwind CSS</span>
-                            <span class="project-tag">Expo</span>
+                    <div class="faq-accordion-item">
+                        <div class="faq-header-flex">
+                            <h3 class="faq-question-title">Can you build cross-platform mobile applications?</h3>
+                            <div class="faq-toggle-icon">+</div>
+                        </div>
+                        <div class="faq-answer-body">
+                            <p>
+                                Absolutely. Using React Native and Expo, I build unified mobile apps that run smoothly on both iOS and Android with a shared codebase, native performance, and cloud backends.
+                            </p>
                         </div>
                     </div>
-                </div>
 
-                <!-- Project 3: TouristSpot -->
-                <div class="project-card reveal delay-3">
-                    <div class="project-image">
-                        <img src="assets/images/touristspot.png" alt="TouristSpot - Travel Website">
-                    </div>
-                    <div class="project-info">
-                        <h3 class="project-title">TouristSpot - Travel Website</h3>
-                        <p class="project-description">
-                            A tour and travel website to explore destinations, plan trips, 
-                            and discover hidden gems around the world.
-                        </p>
-                        <div class="project-tags">
-                            <span class="project-tag">HTML</span>
-                            <span class="project-tag">CSS</span>
-                            <span class="project-tag">JavaScript</span>
+                    <div class="faq-accordion-item">
+                        <div class="faq-header-flex">
+                            <h3 class="faq-question-title">How can we start collaborating on a project?</h3>
+                            <div class="faq-toggle-icon">+</div>
+                        </div>
+                        <div class="faq-answer-body">
+                            <p>
+                                You can drop a message directly via the contact form below or email me at <a href="mailto:jaykumarroy06@gmail.com" style="color: var(--accent-red); text-decoration: underline;">jaykumarroy06@gmail.com</a>. I usually respond within 24 hours!
+                            </p>
                         </div>
                     </div>
-                </div>
 
-                <!-- Project 4: Urchoyc -->
-                <div class="project-card reveal delay-4">
-                    <div class="project-image">
-                        <img src="assets/images/urchoyc.png" alt="Urchoyc - Exam System">
-                    </div>
-                    <div class="project-info">
-                        <h3 class="project-title">Urchoyc - Exam System</h3>
-                        <p class="project-description">
-                            An online examination system for students and educators, featuring timed quizzes, 
-                            auto-grading, and comprehensive result analytics.
-                        </p>
-                        <div class="project-tags">
-                            <span class="project-tag">HTML</span>
-                            <span class="project-tag">Tailwind CSS</span>
-                            <span class="project-tag">PHP</span>
-                            <span class="project-tag">MySQL</span>
-                            <span class="project-tag">JavaScript</span>
-                        </div>
-                    </div>
                 </div>
 
             </div>
         </div>
     </section>
 
-    <!-- ============ EDUCATION SECTION ============ -->
-    <section id="education" class="section">
-        <div class="container">
-            <div class="section-header reveal">
-                <h2 class="section-title">Education</h2>
-                <p class="section-subtitle">My academic journey</p>
-            </div>
-            <div class="timeline">
-                <div class="timeline-item reveal">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <span class="timeline-year"><i class="fas fa-calendar-alt"></i> June 2026 — Present</span>
-                        <h3 class="timeline-title">B.Tech — Computer Science (AI & ML)</h3>
-                        <p class="timeline-subtitle">Pimpri Chinchwad University, Pune</p>
-                        <p class="timeline-description">
-                            Currently pursuing a Bachelor's degree in Computer Science with a specialization 
-                            in Artificial Intelligence and Machine Learning. Focused on building a strong 
-                            foundation in algorithms, data structures, and intelligent systems.
-                        </p>
+    <!-- Contact -->
+    <section id="contact" class="section-wrapper" style="padding-top: 2rem;">
+        <div class="section-inner">
+            
+            <div class="contact-showcase-card reveal-on-scroll">
+                
+                <div class="contact-visual-side">
+                    <div>
+                        <span class="section-eyebrow" style="color: rgba(255,255,255,0.6); border-color: rgba(255,255,255,0.2);">[ GET IN TOUCH ]</span>
+                        <h2 class="contact-visual-title">LET'S WORK<br>TOGETHER.</h2>
                     </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- ============ CONTACT SECTION ============ -->
-    <section id="contact" class="section">
-        <div class="container">
-            <div class="section-header reveal">
-                <h2 class="section-title">Get In Touch</h2>
-                <p class="section-subtitle">Have a question or want to work together? Let's connect!</p>
-            </div>
-            <div class="contact-container">
-                <div class="contact-info reveal-left">
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-envelope"></i>
+                    <div class="contact-details-list">
+                        <div class="contact-item-row">
+                            <div class="contact-icon-pill"><i class="fas fa-envelope"></i></div>
+                            <div class="contact-item-info">
+                                <h4>Email Directly</h4>
+                                <a href="mailto:jaykumarroy06@gmail.com">jaykumarroy06@gmail.com</a>
+                            </div>
                         </div>
-                        <div class="contact-text">
-                            <h3>Email</h3>
-                            <p>jaykumarroy@email.com</p>
+
+                        <div class="contact-item-row">
+                            <div class="contact-icon-pill"><i class="fas fa-location-dot"></i></div>
+                            <div class="contact-item-info">
+                                <h4>Location</h4>
+                                <p>Pune, Maharashtra, India</p>
+                            </div>
                         </div>
-                    </div>
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-map-marker-alt"></i>
-                        </div>
-                        <div class="contact-text">
-                            <h3>Location</h3>
-                            <p>Pune, Maharashtra, India</p>
+
+                        <div class="contact-item-row">
+                            <div class="contact-icon-pill"><i class="fas fa-graduation-cap"></i></div>
+                            <div class="contact-item-info">
+                                <h4>University</h4>
+                                <p>Pimpri Chinchwad University</p>
+                            </div>
                         </div>
                     </div>
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-graduation-cap"></i>
-                        </div>
-                        <div class="contact-text">
-                            <h3>University</h3>
-                            <p>Pimpri Chinchwad University</p>
-                        </div>
-                    </div>
-                    <div class="social-links" style="margin-top: 1rem;">
-                        <a href="https://github.com/JAYKUMARROY" target="_blank" rel="noopener noreferrer" title="GitHub" class="social-link">
+
+                    <div class="hero-socials" style="margin-top: 2rem; position: relative; z-index: 2;">
+                        <a href="https://github.com/JAYKUMARROY" target="_blank" rel="noopener noreferrer" class="social-pill-btn" style="background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.2); color: #fff;" title="GitHub">
                             <i class="fab fa-github"></i>
                         </a>
-                        <a href="https://www.linkedin.com/in/jayumarroy06/" target="_blank" rel="noopener noreferrer" title="LinkedIn" class="social-link">
+                        <a href="https://www.linkedin.com/in/jayumarroy06/" target="_blank" rel="noopener noreferrer" class="social-pill-btn" style="background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.2); color: #fff;" title="LinkedIn">
                             <i class="fab fa-linkedin-in"></i>
                         </a>
-                        <a href="https://x.com/Mr_Roy_02" target="_blank" rel="noopener noreferrer" title="Twitter" class="social-link">
+                        <a href="https://x.com/Mr_Roy_02" target="_blank" rel="noopener noreferrer" class="social-pill-btn" style="background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.2); color: #fff;" title="Twitter">
                             <i class="fab fa-x-twitter"></i>
                         </a>
-                        <a href="https://leetcode.com/u/Mr_Roy_06/" target="_blank" rel="noopener noreferrer" title="LeetCode" class="social-link">
+                        <a href="https://leetcode.com/u/Mr_Roy_06/" target="_blank" rel="noopener noreferrer" class="social-pill-btn" style="background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.2); color: #fff;" title="LeetCode">
                             <i class="fas fa-code"></i>
                         </a>
                     </div>
                 </div>
-                <div class="contact-form-wrapper reveal-right">
-                    <div id="form-success-message" class="form-success-message" style="display: none; background: rgba(16, 185, 129, 0.1); border: 1px solid rgba(16, 185, 129, 0.3); padding: 1rem; border-radius: 10px; color: #10b981; margin-bottom: 1.5rem; text-align: center;">
-                        Thank you! Your message has been sent successfully.
+
+                <div class="contact-form-side">
+                    <h3 class="contact-form-title">Send a Message</h3>
+                    <p class="contact-form-sub">
+                        Have a project, opportunity, or idea in mind? Leave a message below or email directly.
+                    </p>
+
+                    <div id="form-success-message" style="display: none; background: rgba(16, 185, 129, 0.15); border: 1px solid rgba(16, 185, 129, 0.4); padding: 1rem; border-radius: 8px; color: #10b981; margin-bottom: 1.5rem; text-align: center; font-family: var(--font-mono); font-size: 0.85rem;">
+                        <i class="fas fa-check-circle"></i> Message sent successfully! I'll get back to you soon.
                     </div>
-                    <div id="form-error-message" class="form-error-message" style="display: none; background: rgba(239, 68, 68, 0.1); border: 1px solid rgba(239, 68, 68, 0.3); padding: 1rem; border-radius: 10px; color: #ef4444; margin-bottom: 1.5rem; text-align: center;">
-                        There was a problem submitting your form. Please try again.
+                    <div id="form-error-message" style="display: none; background: rgba(239, 68, 68, 0.15); border: 1px solid rgba(239, 68, 68, 0.4); padding: 1rem; border-radius: 8px; color: #ef4444; margin-bottom: 1.5rem; text-align: center; font-family: var(--font-mono); font-size: 0.85rem;">
+                        <i class="fas fa-exclamation-triangle"></i> Problem submitting your form. Please try again.
                     </div>
-                    <form class="contact-form" id="contact-form" action="https://formspree.io/f/maqzgzaz" method="POST">
-                        <div class="form-group">
-                            <label for="name">Your Name</label>
-                            <input type="text" id="name" name="name" placeholder="Jay Kumar Roy" required>
+
+                    <form id="contact-form" action="https://formspree.io/f/maqzgzaz" method="POST">
+                        <div class="modern-form-group">
+                            <input type="text" id="form-name" name="name" class="modern-input" placeholder="Your Name *" required>
                         </div>
-                        <div class="form-group">
-                            <label for="email">Your Email</label>
-                            <input type="email" id="email" name="email" placeholder="you@example.com" required>
+
+                        <div class="modern-form-group">
+                            <input type="email" id="form-email" name="email" class="modern-input" placeholder="Your Email *" required>
                         </div>
-                        <div class="form-group">
-                            <label for="subject">Subject</label>
-                            <input type="text" id="subject" name="subject" placeholder="Let's collaborate!">
+
+                        <div class="modern-form-group">
+                            <select id="form-service" name="service" class="modern-select" required>
+                                <option value="" disabled selected>Select Service / Inquiry Type *</option>
+                                <option value="Web Development">Full-Stack Web Development</option>
+                                <option value="Mobile App Development">Mobile App (React Native)</option>
+                                <option value="AI & Machine Learning">AI &amp; Machine Learning Integration</option>
+                                <option value="Internship / Fulltime Role">Internship / Full-time Opportunity</option>
+                                <option value="Other">Other Collaboration</option>
+                            </select>
                         </div>
-                        <div class="form-group">
-                            <label for="message">Message</label>
-                            <textarea id="message" name="message" placeholder="Tell me about your idea..." required></textarea>
+
+                        <div class="modern-form-group">
+                            <textarea id="form-message" name="message" class="modern-textarea" placeholder="Your Message *" required></textarea>
                         </div>
-                        <button type="submit" class="btn-submit" id="form-submit-btn">
-                            <i class="fas fa-paper-plane"></i> <span>Send Message</span>
+
+                        <button type="submit" class="btn-form-submit" id="form-submit-btn">
+                            <span>SUBMIT MESSAGE</span>
+                            <i class="fas fa-arrow-right"></i>
                         </button>
                     </form>
                 </div>
+
             </div>
+
         </div>
     </section>
 
-    <!-- ============ FOOTER ============ -->
-    <footer class="footer">
-        <div class="footer-content">
-            <div class="footer-socials">
-                <a href="https://github.com/JAYKUMARROY" target="_blank" rel="noopener noreferrer" title="GitHub">
-                    <i class="fab fa-github"></i>
-                </a>
-                <a href="https://www.linkedin.com/in/jayumarroy06/" target="_blank" rel="noopener noreferrer" title="LinkedIn">
-                    <i class="fab fa-linkedin-in"></i>
-                </a>
-                <a href="https://x.com/Mr_Roy_02" target="_blank" rel="noopener noreferrer" title="Twitter">
-                    <i class="fab fa-x-twitter"></i>
-                </a>
-                <a href="https://leetcode.com/u/Mr_Roy_06/" target="_blank" rel="noopener noreferrer" title="LeetCode">
-                    <i class="fas fa-code"></i>
-                </a>
+    <!-- Footer -->
+    <footer class="editorial-footer">
+        <div class="section-inner">
+            
+            <div class="footer-top-grid">
+                
+                <div class="footer-nav-columns">
+                    <div class="footer-col-links">
+                        <a href="#hero" class="footer-col-link">Home</a>
+                        <a href="#about" class="footer-col-link">About</a>
+                        <a href="#services" class="footer-col-link">Services</a>
+                        <a href="#projects" class="footer-col-link">Selected Work</a>
+                        <a href="#education" class="footer-col-link">Education</a>
+                    </div>
+                    <div class="footer-col-links">
+                        <a href="https://github.com/JAYKUMARROY" target="_blank" rel="noopener noreferrer" class="footer-col-link">GitHub ↗</a>
+                        <a href="https://www.linkedin.com/in/jayumarroy06/" target="_blank" rel="noopener noreferrer" class="footer-col-link">LinkedIn ↗</a>
+                        <a href="https://x.com/Mr_Roy_02" target="_blank" rel="noopener noreferrer" class="footer-col-link">Twitter / X ↗</a>
+                        <a href="https://leetcode.com/u/Mr_Roy_06/" target="_blank" rel="noopener noreferrer" class="footer-col-link">LeetCode ↗</a>
+                        <a href="assets/Jay_Kumar_Roy_Resume.pdf" target="_blank" rel="noopener noreferrer" class="footer-col-link">Resume PDF ↗</a>
+                    </div>
+                </div>
+
+                <div class="footer-contact-callout">
+                    <span class="footer-callout-eyebrow">Reach out anytime</span>
+                    <a href="mailto:jaykumarroy06@gmail.com" class="footer-big-email">jaykumarroy06@gmail.com</a>
+                </div>
+
             </div>
-            <p class="footer-text">
-                &copy; 2026 Jay Kumar Roy. All rights reserved.
-            </p>
-            <p class="footer-credit">
-                Made with <span class="heart">💜</span> by Jay
-            </p>
+
+            <div class="footer-signature-row">
+                <div>
+                    <h2 class="footer-giant-title">JAY KUMAR ROY.</h2>
+                </div>
+                <div class="footer-editorial-flair">
+                    <span class="flair-item">Software Engineering</span>
+                    <span class="flair-item">AI &amp; Machine Learning</span>
+                    <span class="flair-item">Mobile Applications</span>
+                </div>
+            </div>
+
+            <div class="footer-bottom-bar">
+                <p>&copy; 2026 Jay Kumar Roy. All rights reserved.</p>
+                <p><span class="status-beacon" style="display: inline-block; vertical-align: middle; margin-right: 6px;"></span> Available for Opportunities</p>
+            </div>
+
         </div>
     </footer>
 
-    <!-- Back to Top Button -->
-    <button class="back-to-top" id="back-to-top" title="Back to top">
+    <!-- Back to top -->
+    <button class="back-to-top-btn" id="back-to-top-btn" aria-label="Back to top" title="Back to top">
         <i class="fas fa-chevron-up"></i>
     </button>
 
-
-
-    <!-- JavaScript -->
     <script src="js/main.js"></script>
 </body>
 </html>

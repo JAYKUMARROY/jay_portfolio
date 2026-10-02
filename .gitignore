@@ -1,0 +1,29 @@
+# Dependencies & builds
+node_modules/
+dist/
+build/
+*.apk
+*.zip
+
+# Agent & AI framework scaffolding
+.agent/
+.agents/
+.gemini/
+.gsd/
+adapters/
+scripts/
+model_capabilities.yaml
+PROJECT_RULES.md
+GSD-STYLE.md
+VERSION
+
+# OS and Editor files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.log
+
+# Scratch and temp files
+*.tmp
+scratch/
